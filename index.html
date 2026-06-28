@@ -247,6 +247,27 @@
     }
     .wish-sub.show { opacity: 1; transform: translateY(0); }
 
+    .wish-photo {
+      width: min(320px, 90%);
+      margin: 1.8rem auto 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(255, 100, 255, .25);
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+      transition: opacity 1s ease .7s, transform 1s ease .7s;
+    }
+    .wish-photo.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .wish-photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
     .wish-message {
       max-width: 600px;
       font-size: 1.1rem;
@@ -471,7 +492,10 @@
       <div class="wish-word" id="word-birthday"></div>
       <div class="wish-word" id="word-nana"></div>
     </div>
-    <div class="wish-sub" id="wishSub">🎉 Wishing you a day full of magic & joy! 🎉</div>
+    <div class="wish-sub" id="wishSub">“Your smile lights up every heart, Nanaa.”</div>
+    <div class="wish-photo" id="wishPhoto">
+      <img src="nana.jpg" alt="Nanaa smiling on her birthday" />
+    </div>
     <div class="wish-message" id="wishMsg">
       May your birthday be sprinkled with fun and laughter.<br />
       May all your dreams come true today & always.<br />
@@ -835,6 +859,7 @@
         setTimeout(() => {
           animateWishText();
           document.getElementById('wishSub').classList.add('show');
+          document.getElementById('wishPhoto').classList.add('show');
           document.getElementById('wishMsg').classList.add('show');
           document.getElementById('heartsBtn').classList.add('show');
         }, 400);
